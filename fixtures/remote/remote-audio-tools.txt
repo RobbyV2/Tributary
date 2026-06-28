@@ -1,0 +1,41 @@
+$ which pw-cat pw-play pw-record paplay parecord arecord aplay sox ffmpeg bluealsa bluealsa-aplay
+/usr/bin/pw-cat
+/usr/bin/pw-play
+/usr/bin/pw-record
+/usr/bin/paplay
+/usr/bin/parecord
+/usr/bin/arecord
+/usr/bin/aplay
+/usr/bin/sox
+/usr/bin/ffmpeg
+  (bluealsa and bluealsa-aplay NOT found -> BlueALSA absent. EXIT 1 from `which`
+   because those two args resolved to nothing.)
+
+$ systemctl is-active bluetooth
+active
+
+$ pgrep -a bluetoothd
+480 /usr/libexec/bluetooth/bluetoothd
+
+$ pgrep -a -x pipewire / wireplumber / pipewire-pulse / pulseaudio
+18138 /usr/bin/pipewire
+18139 /usr/bin/pipewire -c filter-chain.conf
+18140 /usr/bin/wireplumber
+18141 /usr/bin/pipewire-pulse
+  (no standalone pulseaudio process)
+
+$ systemctl --user is-active pipewire wireplumber pipewire-pulse pulseaudio
+active        (pipewire)
+active        (wireplumber)
+active        (pipewire-pulse)
+inactive      (pulseaudio)
+
+$ loginctl show-user pi -p Linger
+Linger=no
+  (user services run only within an active login session; headless automation
+   over SSH must export XDG_RUNTIME_DIR=/run/user/<uid> and reach the pipewire
+   socket, or enable linger for the pi user.)
+
+TOOLING VERDICT: full PipeWire CLI (pw-cat/pw-play/pw-record), PulseAudio-API
+clients via pipewire-pulse (paplay/parecord), ALSA (aplay/arecord), plus sox and
+ffmpeg for sweep generation and WAV capture. BlueALSA not present.

@@ -1,0 +1,8 @@
+alsa_output.pci-0000_06_00.6.analog-stereo:playback_FL
+  |<- pw-play:output_FL
+alsa_output.pci-0000_06_00.6.analog-stereo:playback_FR
+  |<- pw-play:output_FR
+pw-play:output_FL
+  |-> alsa_output.pci-0000_06_00.6.analog-stereo:playback_FL
+pw-play:output_FR
+  |-> alsa_output.pci-0000_06_00.6.analog-stereo:playback_FR

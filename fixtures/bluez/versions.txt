@@ -1,0 +1,13 @@
+# bluetoothctl --version
+bluetoothctl: 5.86
+
+# bluetoothd --version
+5.86
+
+# tool presence
+busctl: /usr/bin/busctl
+gdbus: /usr/bin/gdbus
+bluetoothctl: /usr/bin/bluetoothctl
+hciconfig: MISSING
+rfkill: /usr/bin/rfkill
+dbus-send: /usr/bin/dbus-send

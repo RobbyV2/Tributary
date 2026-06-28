@@ -1,0 +1,82 @@
+$ ls -la /usr/lib/*/pipewire-0.3/
+(path: /usr/lib/aarch64-linux-gnu/pipewire-0.3/)
+libpipewire-module-access.so
+libpipewire-module-adapter.so
+libpipewire-module-avb.so
+libpipewire-module-client-device.so
+libpipewire-module-client-node.so
+libpipewire-module-combine-stream.so
+libpipewire-module-echo-cancel.so
+libpipewire-module-fallback-sink.so
+libpipewire-module-ffado-driver.so
+libpipewire-module-filter-chain-lv2.so
+libpipewire-module-filter-chain.so
+libpipewire-module-filter-chain-sofa.so
+libpipewire-module-jackdbus-detect.so
+libpipewire-module-jack-tunnel.so
+libpipewire-module-link-factory.so
+libpipewire-module-loopback.so
+libpipewire-module-metadata.so
+libpipewire-module-netjack2-driver.so
+libpipewire-module-netjack2-manager.so
+libpipewire-module-parametric-equalizer.so
+libpipewire-module-pipe-tunnel.so
+libpipewire-module-portal.so
+libpipewire-module-profiler.so
+libpipewire-module-protocol-native.so
+libpipewire-module-protocol-pulse.so
+libpipewire-module-protocol-simple.so
+libpipewire-module-pulse-tunnel.so
+libpipewire-module-raop-discover.so
+libpipewire-module-raop-sink.so
+libpipewire-module-rtkit.so
+libpipewire-module-rtp-sap.so
+libpipewire-module-rtp-session.so
+libpipewire-module-rtp-sink.so
+libpipewire-module-rtp-source.so
+libpipewire-module-rt.so
+libpipewire-module-session-manager.so
+libpipewire-module-snapcast-discover.so
+libpipewire-module-spa-device-factory.so
+libpipewire-module-spa-device.so
+libpipewire-module-spa-node-factory.so
+libpipewire-module-spa-node.so
+libpipewire-module-vban-recv.so
+libpipewire-module-vban-send.so
+libpipewire-module-zeroconf-discover.so
+
+$ ls -la /usr/lib/*/spa-0.2/bluez5/
+(path: /usr/lib/aarch64-linux-gnu/spa-0.2/bluez5/)
+libspa-bluez5.so                     <- main BlueZ5 SPA plugin (A2DP source+sink, HSP/HFP)
+libspa-codec-bluez5-aptx.so          <- aptX / aptX-HD
+libspa-codec-bluez5-faststream.so    <- FastStream
+libspa-codec-bluez5-lc3.so           <- LC3 (LE Audio)
+libspa-codec-bluez5-ldac.so          <- LDAC
+libspa-codec-bluez5-opus-g.so        <- Opus (gaming/low-latency variant)
+libspa-codec-bluez5-opus.so          <- Opus (PipeWire vendor codec)
+libspa-codec-bluez5-sbc.so           <- SBC (mandatory A2DP codec)
+  ** NO libspa-codec-bluez5-aac.so -> AAC A2DP codec NOT available **
+
+$ ls /usr/lib/*/ | grep -iE "ldac|fdk|aptx|sbc|faac|faad"
+libfaad_drm.so.2
+libfaad_drm.so.2.0.0
+libfaad.so.2            <- AAC DECODER (faad); not an encoder, not the A2DP codec plugin
+libfaad.so.2.0.0
+libfreeaptx.so.0        <- aptX encode/decode backing lib
+libfreeaptx.so.0.1.1
+libldacBT_abr.so.2      <- LDAC adaptive bitrate
+libldacBT_abr.so.2.0.2
+libldacBT_enc.so.2      <- LDAC ENCODER
+libldacBT_enc.so.2.0.2
+libsbc.so.1             <- SBC encode/decode
+libsbc.so.1.3.1
+  ** no libfdk-aac present -> confirms no AAC encode path for A2DP **
+
+$ ls /usr/lib/*/pulse-*/modules/ 2>/dev/null | grep -i blue
+(no output, EXIT 1 -- no /usr/lib/*/pulse-*/modules/ tree; PulseAudio is not the
+ active stack, so module-bluetooth-discover/module-bluez5-discover are not in use.)
+
+SUMMARY
+  A2DP codecs usable via PipeWire bluez5: SBC (mandatory), aptX/aptX-HD, LDAC,
+  LC3, Opus, FastStream.
+  NOT available: AAC (no SPA codec plugin, no libfdk-aac encoder).

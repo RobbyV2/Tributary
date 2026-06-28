@@ -1,0 +1,22 @@
+$ uname -a
+Linux kpi 6.12.47+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.12.47-1+rpt1~bookworm (2025-09-16) aarch64 GNU/Linux
+
+$ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+NAME="Debian GNU/Linux"
+VERSION_ID="12"
+VERSION="12 (bookworm)"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+$ hostnamectl
+ Static hostname: kpi
+       Icon name: computer
+      Machine ID: b7387ac83e5140d59a5b5d8430125601
+         Boot ID: 070ac01bb0d64f9b8bf8953f6742b765
+Operating System: Debian GNU/Linux 12 (bookworm)
+          Kernel: Linux 6.12.47+rpt-rpi-v8
+    Architecture: arm64

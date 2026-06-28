@@ -1,0 +1,19 @@
+pipewire --version:
+pipewire
+Compiled with libpipewire 1.6.6
+Linked with libpipewire 1.6.6
+
+wireplumber --version:
+wireplumber
+Compiled with libwireplumber 0.5.14
+Linked with libwireplumber 0.5.14
+
+pw-cli --version:
+pw-cli
+Compiled with libpipewire 1.6.6
+Linked with libpipewire 1.6.6
+
+pw-dump --version:
+pw-dump
+Compiled with libpipewire 1.6.6
+Linked with libpipewire 1.6.6

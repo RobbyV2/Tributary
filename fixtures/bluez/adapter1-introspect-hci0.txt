@@ -1,0 +1,102 @@
+# busctl introspect org.bluez /org/bluez/hci0
+NAME                                TYPE      SIGNATURE RESULT/VALUE                                                                                         FLAGS
+org.bluez.Adapter1                  interface -         -                                                                                                    -
+.GetDiscoveryFilters                method    -         as                                                                                                   -
+.RemoveDevice                       method    o         -                                                                                                    -
+.SetDiscoveryFilter                 method    a{sv}     -                                                                                                    -
+.StartDiscovery                     method    -         -                                                                                                    -
+.StopDiscovery                      method    -         -                                                                                                    -
+.Address                            property  s         "14:AC:60:B5:45:8E"                                                                                  emits-change
+.AddressType                        property  s         "public"                                                                                             emits-change
+.Alias                              property  s         "lobby"                                                                                              emits-change writable
+.Class                              property  u         8126732                                                                                              emits-change
+.Connectable                        property  b         false                                                                                                emits-change writable
+.Discoverable                       property  b         false                                                                                                emits-change writable
+.DiscoverableTimeout                property  u         180                                                                                                  emits-change writable
+.Discovering                        property  b         false                                                                                                emits-change
+.ExperimentalFeatures               property  as        -                                                                                                    emits-change
+.Manufacturer                       property  q         70                                                                                                   emits-change
+.Modalias                           property  s         "usb:v1D6Bp0246d0556"                                                                                emits-change
+.Name                               property  s         "lobby"                                                                                              emits-change
+.Pairable                           property  b         true                                                                                                 emits-change writable
+.PairableTimeout                    property  u         0                                                                                                    emits-change writable
+.PowerState                         property  s         "on"                                                                                                 emits-change
+.Powered                            property  b         true                                                                                                 emits-change writable
+.Roles                              property  as        2 "central" "peripheral"                                                                             emits-change
+.UUIDs                              property  as        20 "00001133-0000-1000-8000-00805f9b34fb" "0000110e-0000-1000-8000-00805f9b34fb" "03b80e5a-ede8-4b3… emits-change
+.Version                            property  y         12                                                                                                   emits-change
+org.bluez.BatteryProviderManager1   interface -         -                                                                                                    -
+.RegisterBatteryProvider            method    o         -                                                                                                    -
+.UnregisterBatteryProvider          method    o         -                                                                                                    -
+org.bluez.GattManager1              interface -         -                                                                                                    -
+.RegisterApplication                method    oa{sv}    -                                                                                                    -
+.UnregisterApplication              method    o         -                                                                                                    -
+org.bluez.LEAdvertisingManager1     interface -         -                                                                                                    -
+.RegisterAdvertisement              method    oa{sv}    -                                                                                                    -
+.UnregisterAdvertisement            method    o         -                                                                                                    -
+.ActiveInstances                    property  y         0                                                                                                    emits-change
+.SupportedCapabilities              property  a{sv}     4 "MinTxPower" n -14 "MaxTxPower" n 13 "MaxAdvLen" y 251 "MaxScnRspLen" y 251                        emits-change
+.SupportedFeatures                  property  as        2 "CanSetTxPower" "HardwareOffload"                                                                  emits-change
+.SupportedIncludes                  property  as        3 "tx-power" "appearance" "local-name"                                                               emits-change
+.SupportedInstances                 property  y         20                                                                                                   emits-change
+.SupportedSecondaryChannels         property  as        3 "1M" "2M" "Coded"                                                                                  emits-change
+org.bluez.Media1                    interface -         -                                                                                                    -
+.RegisterApplication                method    oa{sv}    -                                                                                                    -
+.RegisterEndpoint                   method    oa{sv}    -                                                                                                    -
+.RegisterPlayer                     method    oa{sv}    -                                                                                                    -
+.UnregisterApplication              method    o         -                                                                                                    -
+.UnregisterEndpoint                 method    o         -                                                                                                    -
+.UnregisterPlayer                   method    o         -                                                                                                    -
+.SupportedFeatures                  property  as        1 "tx-timestamping"                                                                                  emits-change
+.SupportedUUIDs                     property  as        2 "0000110a-0000-1000-8000-00805f9b34fb" "0000110b-0000-1000-8000-00805f9b34fb"                      emits-change
+org.bluez.NetworkServer1            interface -         -                                                                                                    -
+.Register                           method    ss        -                                                                                                    -
+.Unregister                         method    s         -                                                                                                    -
+org.freedesktop.DBus.Introspectable interface -         -                                                                                                    -
+.Introspect                         method    -         s                                                                                                    -
+org.freedesktop.DBus.Properties     interface -         -                                                                                                    -
+.Get                                method    ss        v                                                                                                    -
+.GetAll                             method    s         a{sv}                                                                                                -
+.Set                                method    ssv       -                                                                                                    -
+.PropertiesChanged                  signal    sa{sv}as  -                                                                                                    -
+
+# gdbus XML (method/signal arg names) — gdbus introspect --system --dest org.bluez --object-path /org/bluez/hci0 --xml
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node><interface name="org.freedesktop.DBus.Introspectable"><method name="Introspect"><arg name="xml" type="s" direction="out"/>
+</method></interface><interface name="org.bluez.Adapter1"><method name="StartDiscovery"></method><method name="SetDiscoveryFilter"><arg name="properties" type="a{sv}" direction="in"/>
+</method><method name="StopDiscovery"></method><method name="RemoveDevice"><arg name="device" type="o" direction="in"/>
+</method><method name="GetDiscoveryFilters"><arg name="filters" type="as" direction="out"/>
+</method><property name="Address" type="s" access="read"></property><property name="AddressType" type="s" access="read"></property><property name="Name" type="s" access="read"></property><property name="Alias" type="s" access="readwrite"></property><property name="Class" type="u" access="read"></property><property name="Connectable" type="b" access="readwrite"></property><property name="Powered" type="b" access="readwrite"></property><property name="PowerState" type="s" access="read"></property><property name="Discoverable" type="b" access="readwrite"></property><property name="DiscoverableTimeout" type="u" access="readwrite"></property><property name="Pairable" type="b" access="readwrite"></property><property name="PairableTimeout" type="u" access="readwrite"></property><property name="Discovering" type="b" access="read"></property><property name="UUIDs" type="as" access="read"></property><property name="Modalias" type="s" access="read"></property><property name="Roles" type="as" access="read"></property><property name="ExperimentalFeatures" type="as" access="read"></property><property name="Manufacturer" type="q" access="read"></property><property name="Version" type="y" access="read"></property></interface><interface name="org.freedesktop.DBus.Properties"><method name="Get"><arg name="interface" type="s" direction="in"/>
+<arg name="name" type="s" direction="in"/>
+<arg name="value" type="v" direction="out"/>
+</method><method name="Set"><arg name="interface" type="s" direction="in"/>
+<arg name="name" type="s" direction="in"/>
+<arg name="value" type="v" direction="in"/>
+</method><method name="GetAll"><arg name="interface" type="s" direction="in"/>
+<arg name="properties" type="a{sv}" direction="out"/>
+</method><signal name="PropertiesChanged"><arg name="interface" type="s"/>
+<arg name="changed_properties" type="a{sv}"/>
+<arg name="invalidated_properties" type="as"/>
+</signal>
+</interface><interface name="org.bluez.BatteryProviderManager1"><method name="RegisterBatteryProvider"><arg name="provider" type="o" direction="in"/>
+</method><method name="UnregisterBatteryProvider"><arg name="provider" type="o" direction="in"/>
+</method></interface><interface name="org.bluez.GattManager1"><method name="RegisterApplication"><arg name="application" type="o" direction="in"/>
+<arg name="options" type="a{sv}" direction="in"/>
+</method><method name="UnregisterApplication"><arg name="application" type="o" direction="in"/>
+</method></interface><interface name="org.bluez.Media1"><method name="RegisterEndpoint"><arg name="endpoint" type="o" direction="in"/>
+<arg name="properties" type="a{sv}" direction="in"/>
+</method><method name="UnregisterEndpoint"><arg name="endpoint" type="o" direction="in"/>
+</method><method name="RegisterPlayer"><arg name="player" type="o" direction="in"/>
+<arg name="properties" type="a{sv}" direction="in"/>
+</method><method name="UnregisterPlayer"><arg name="player" type="o" direction="in"/>
+</method><method name="RegisterApplication"><arg name="application" type="o" direction="in"/>
+<arg name="options" type="a{sv}" direction="in"/>
+</method><method name="UnregisterApplication"><arg name="application" type="o" direction="in"/>
+</method><property name="SupportedUUIDs" type="as" access="read"></property><property name="SupportedFeatures" type="as" access="read"></property></interface><interface name="org.bluez.NetworkServer1"><method name="Register"><arg name="uuid" type="s" direction="in"/>
+<arg name="bridge" type="s" direction="in"/>
+</method><method name="Unregister"><arg name="uuid" type="s" direction="in"/>
+</method></interface><interface name="org.bluez.LEAdvertisingManager1"><method name="RegisterAdvertisement"><arg name="advertisement" type="o" direction="in"/>
+<arg name="options" type="a{sv}" direction="in"/>
+</method><method name="UnregisterAdvertisement"><arg name="service" type="o" direction="in"/>
+</method><property name="ActiveInstances" type="y" access="read"></property><property name="SupportedInstances" type="y" access="read"></property><property name="SupportedIncludes" type="as" access="read"></property><property name="SupportedSecondaryChannels" type="as" access="read"></property><property name="SupportedFeatures" type="as" access="read"></property><property name="SupportedCapabilities" type="a{sv}" access="read"></property></interface><node name="dev_00_07_04_67_96_C0"/><node name="dev_B4_23_A2_01_6D_27"/><node name="dev_E0_AE_5E_31_3B_A7"/></node>

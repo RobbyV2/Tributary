@@ -1,0 +1,41 @@
+# Media interfaces snapshot
+# busctl-tree shows ONLY /org/bluez/hci0/dev_* — no /sepN, /fdN, /playerN nodes exist right now.
+# MediaTransport1 / MediaEndpoint1 / MediaPlayer1 are DYNAMIC: created under the device path when audio streams (device Connected + A2DP/AVRCP active). All devices are Connected:false now, so none are live.
+# Typical live paths (from BlueZ): endpoint sep -> /org/bluez/hci0/dev_XX/sepN ; transport -> /org/bluez/hci0/dev_XX/sepN/fdM ; player -> /org/bluez/hci0/dev_XX/playerN.
+
+## org.bluez.Media1 (on adapter /org/bluez/hci0) — busctl
+NAME                   TYPE     SIGNATURE RESULT/VALUE                                                                    FLAGS
+.RegisterApplication   method   oa{sv}    -                                                                               -
+.RegisterEndpoint      method   oa{sv}    -                                                                               -
+.RegisterPlayer        method   oa{sv}    -                                                                               -
+.UnregisterApplication method   o         -                                                                               -
+.UnregisterEndpoint    method   o         -                                                                               -
+.UnregisterPlayer      method   o         -                                                                               -
+.SupportedFeatures     property as        1 "tx-timestamping"                                                             emits-change
+.SupportedUUIDs        property as        2 "0000110a-0000-1000-8000-00805f9b34fb" "0000110b-0000-1000-8000-00805f9b34fb" emits-change
+
+## org.bluez.Media1 — gdbus XML (arg names)
+</method></interface><interface name="org.bluez.Media1"><method name="RegisterEndpoint"><arg name="endpoint" type="o" direction="in"/>
+<arg name="properties" type="a{sv}" direction="in"/>
+</method><method name="UnregisterEndpoint"><arg name="endpoint" type="o" direction="in"/>
+</method><method name="RegisterPlayer"><arg name="player" type="o" direction="in"/>
+<arg name="properties" type="a{sv}" direction="in"/>
+</method><method name="UnregisterPlayer"><arg name="player" type="o" direction="in"/>
+</method><method name="RegisterApplication"><arg name="application" type="o" direction="in"/>
+<arg name="options" type="a{sv}" direction="in"/>
+</method><method name="UnregisterApplication"><arg name="application" type="o" direction="in"/>
+</method><property name="SupportedUUIDs" type="as" access="read"></property><property name="SupportedFeatures" type="as" access="read"></property></interface><interface name="org.bluez.NetworkServer1"><method name="Register"><arg name="uuid" type="s" direction="in"/>
+
+## org.bluez.MediaControl1 (on device /org/bluez/hci0/dev_B4_23_A2_01_6D_27) — busctl
+NAME         TYPE     SIGNATURE RESULT/VALUE FLAGS
+.FastForward method   -         -            deprecated
+.Next        method   -         -            deprecated
+.Pause       method   -         -            deprecated
+.Play        method   -         -            deprecated
+.Previous    method   -         -            deprecated
+.Rewind      method   -         -            deprecated
+.Stop        method   -         -            deprecated
+.VolumeDown  method   -         -            deprecated
+.VolumeUp    method   -         -            deprecated
+.Connected   property b         false        emits-change
+.Player      property o         -            emits-change

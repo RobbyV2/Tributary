@@ -1,0 +1,49 @@
+PipeWire 'pipewire-0' [1.6.6, lobby@lobby, cookie:3041559600]
+ └─ Clients:
+        32. kwin_wayland                        [1.6.6, lobby@lobby, pid:1725]
+        33. WirePlumber                         [1.6.6, lobby@lobby, pid:1912]
+        41. WirePlumber [export]                [1.6.6, lobby@lobby, pid:1912]
+        60. pipewire                            [1.6.6, lobby@lobby, pid:2553]
+        61. libcanberra                         [1.6.6, lobby@lobby, pid:2059]
+        62.                                     [1.6.6, lobby@lobby, pid:2059]
+        65. plasmashell                         [1.6.6, lobby@lobby, pid:2306]
+        66. libcanberra                         [1.6.6, lobby@lobby, pid:2306]
+        67. xdg-desktop-portal                  [1.6.6, lobby@lobby, pid:2698]
+        68.                                     [1.6.6, lobby@lobby, pid:2306]
+        71. Firefox                             [1.6.6, lobby@lobby, pid:120941]
+        75. Firefox                             [1.6.6, lobby@lobby, pid:120941]
+        81. wpctl                               [1.6.6, lobby@lobby, pid:146040]
+        89. Konsole                             [1.6.6, lobby@lobby, pid:2793]
+
+Audio
+ ├─ Devices:
+ │      42. Radeon High Definition Audio Controller [alsa]
+ │      43. Ryzen HD Audio Controller           [alsa]
+ │  
+ ├─ Sinks:
+ │  *   50. Ryzen HD Audio Controller Analog Stereo [vol: 0.59]
+ │  
+ ├─ Sources:
+ │  *   51. Ryzen HD Audio Controller Analog Stereo [vol: 1.00]
+ │  
+ ├─ Filters:
+ │  
+ └─ Streams:
+
+Video
+ ├─ Devices:
+ │      52. Integrated Camera                   [v4l2]
+ │      53. Integrated Camera                   [v4l2]
+ │  
+ ├─ Sinks:
+ │  
+ ├─ Sources:
+ │  *   63. Integrated Camera (V4L2)           
+ │  
+ ├─ Filters:
+ │  
+ └─ Streams:
+
+Settings
+ └─ Default Configured Devices:
+         0. Audio/Sink    alsa_output.pci-0000_06_00.6.analog-stereo

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tributary"
+version = "0.0.1"
+requires-python = ">=3.11"
+dependencies = ["dbus-next"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio"]
+
+[project.scripts]
+trib = "tributary.control.cli:main"
+tributaryd = "tributary.core.daemon:main"
+
+[tool.setuptools.packages.find]
+include = ["tributary*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = ["integration: real-host PipeWire integration tests"]

@@ -1,0 +1,6 @@
+└─ /org
+  └─ /org/bluez
+    └─ /org/bluez/hci0
+      ├─ /org/bluez/hci0/dev_00_07_04_67_96_C0
+      ├─ /org/bluez/hci0/dev_B4_23_A2_01_6D_27
+      └─ /org/bluez/hci0/dev_E0_AE_5E_31_3B_A7

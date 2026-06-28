@@ -1,0 +1,10 @@
+NAME                                TYPE      SIGNATURE RESULT/VALUE FLAGS
+org.bluez.AgentManager1             interface -         -            -
+.RegisterAgent                      method    os        -            -
+.RequestDefaultAgent                method    o         -            -
+.UnregisterAgent                    method    o         -            -
+org.bluez.ProfileManager1           interface -         -            -
+.RegisterProfile                    method    osa{sv}   -            -
+.UnregisterProfile                  method    o         -            -
+org.freedesktop.DBus.Introspectable interface -         -            -
+.Introspect                         method    -         s            -

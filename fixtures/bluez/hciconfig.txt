@@ -1,0 +1,1 @@
+hciconfig absent (common on modern distros; bluez-utils may not ship it / deprecated)

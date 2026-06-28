@@ -1,0 +1,29 @@
+headphone_mac = "B4:23:A2:01:6D:27"
+
+allow_macs = ["E4:5F:01:E6:31:85"]
+
+# allow_patterns admits source nodes by regex on the PipeWire node name.
+# Narrow OUI example (admits one vendor prefix):
+#   allow_patterns = ["^bluez_input\\.E4_5F_01"]
+# A bare "^bluez_input\\." catch-all matches every Bluetooth input and admits everything.
+allow_patterns = []
+
+sample_rate = 48000
+reconcile_interval = 1.5
+
+# include_host_audio = true
+# Taps this machine's own output into the mix alongside phone sources.
+# host_source = "alsa_output.pci-0000_06_00.6.analog-stereo"
+# Node name of the sink whose monitor to capture; omit for the system default sink.
+
+# single_adapter = true
+# Ignored when [adapters] is omitted. Only meaningful with an [adapters] table
+# that names the same hci for both roles.
+
+[gains]
+"E4:5F:01:E6:31:85" = 1.0
+
+# [adapters]
+# sink_adapter = "hci0"
+# source_adapter = "hci1"
+# Naming the same adapter for both with single_adapter = true runs both roles on one radio.
