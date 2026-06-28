@@ -1,0 +1,12 @@
+[Unit]
+Description=Tributary Bluetooth audio multiplexer daemon (needs the system bluetooth.service for org.bluez)
+After=pipewire.service wireplumber.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+ExecStart=python -m tributary.core.daemon
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
